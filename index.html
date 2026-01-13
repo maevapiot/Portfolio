@@ -1,0 +1,658 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio de Maëva Piot — Communication & Création audiovisuelle (BUT MMI)." />
+  <title>Maëva Piot — Portfolio</title>
+
+  <!-- Google Fonts (titres serif + texte sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,650&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <!-- Skip link (accessibilité clavier) -->
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#accueil" aria-label="Aller à l’accueil">
+        <span class="brand-mark" aria-hidden="true">MP</span>
+        <span class="brand-name">Maëva Piot</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Ouvrir le menu</span>
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a class="nav-link" href="#accueil" data-scrollspy>Accueil</a></li>
+          <li><a class="nav-link" href="#apropos" data-scrollspy>À propos</a></li>
+          <li><a class="nav-link" href="#competences" data-scrollspy>Compétences</a></li>
+          <li><a class="nav-link" href="#projets" data-scrollspy>Projets</a></li>
+          <li><a class="nav-link" href="#contact" data-scrollspy>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="accueil" class="section hero" aria-label="Introduction">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="kicker">Communication • Audiovisuel • Création de contenu</p>
+
+          <h1 class="hero-title">
+            Maëva <span class="accent">Piot</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Communication &amp; Création audiovisuelle — Étudiante en BUT MMI
+          </p>
+
+          <p class="hero-signature">
+            Je transforme des idées en contenus qui captent l’attention.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projets">
+              Voir mes projets
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-ghost" href="#contact">
+              Me contacter
+            </a>
+          </div>
+
+          <div class="badge-row" aria-label="Domaines de spécialité">
+            <span class="badge">Communication</span>
+            <span class="badge">Vidéo</span>
+            <span class="badge">Motion</span>
+            <span class="badge">Réseaux sociaux</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+          <!-- Placeholder premium (pas d’images externes) -->
+          <div class="visual-card">
+            <div class="visual-top">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div>
+            <div class="visual-body">
+              <div class="visual-line w-80"></div>
+              <div class="visual-line w-60"></div>
+              <div class="visual-line w-70"></div>
+              <div class="visual-chip-row">
+                <div class="chip">Storyboard</div>
+                <div class="chip">Montage</div>
+                <div class="chip">Stratégie</div>
+              </div>
+              <div class="visual-gradient"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-bottom container">
+        <div class="value-card reveal">
+          <h2 class="value-title">Approche</h2>
+          <p class="value-text">
+            Un mix entre sens du message et exigence visuelle : storytelling, montage rythmé et
+            stratégie de contenu orientée engagement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- A PROPOS -->
+    <section id="apropos" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>À propos</h2>
+          <p class="section-lead">
+            Créative et rigoureuse, j’aime construire des contenus qui ont du sens : un ton juste,
+            une image soignée, et une intention claire.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card reveal">
+            <h3>Ce qui me motive</h3>
+            <p>
+              Mettre en valeur une idée, une marque ou une personne grâce à une narration fluide,
+              un montage précis et des formats adaptés aux plateformes.
+            </p>
+            <p class="muted">
+              Je travaille avec une sensibilité “éditoriale” : composition, rythme, cohérence, et détails.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Infos rapides</h3>
+            <ul class="meta-list">
+              <li>
+                <span class="meta-label">Formation</span>
+                <span class="meta-value">BUT Métiers du Multimédia et de l’Internet (1re année)</span>
+              </li>
+              <li>
+                <span class="meta-label">Localisation</span>
+                <span class="meta-value">France</span>
+              </li>
+              <li>
+                <span class="meta-label">Disponibilité</span>
+                <span class="meta-value">Stage / alternance (selon opportunités)</span>
+              </li>
+            </ul>
+            <div class="mini-stats" aria-label="Points forts">
+              <div class="mini-stat">
+                <span class="mini-stat-num">+</span>
+                <span class="mini-stat-label">Créativité</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-num">✓</span>
+                <span class="mini-stat-label">Fiabilité</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-num">↗</span>
+                <span class="mini-stat-label">Curiosité</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCES -->
+    <section id="competences" class="section section-warm">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Compétences</h2>
+          <p class="section-lead">
+            Deux piliers : la clarté du message et la qualité de l’exécution. Je progresse vite, avec méthode.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="card reveal">
+            <header class="card-head">
+              <h3>Communication</h3>
+              <p class="muted">Stratégie, ton, cohérence de marque.</p>
+            </header>
+
+            <ul class="skill-list">
+              <li class="skill">
+                <div class="skill-top">
+                  <span>Stratégie de contenu</span>
+                  <span class="pill">Avancé</span>
+                </div>
+                <div class="skill-tags" aria-label="Détails compétence">
+                  <span class="tag">Calendrier éditorial</span>
+                  <span class="tag">Objectifs</span>
+                  <span class="tag">KPIs</span>
+                </div>
+              </li>
+
+              <li class="skill">
+                <div class="skill-top">
+                  <span>Rédaction &amp; storytelling</span>
+                  <span class="pill">Avancé</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="tag">Angles</span>
+                  <span class="tag">Scripts</span>
+                  <span class="tag">Voix de marque</span>
+                </div>
+              </li>
+
+              <li class="skill">
+                <div class="skill-top">
+                  <span>Réseaux sociaux</span>
+                  <span class="pill">Intermédiaire</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="tag">Instagram</span>
+                  <span class="tag">TikTok</span>
+                  <span class="tag">Community</span>
+                </div>
+              </li>
+
+              <li class="skill">
+                <div class="skill-top">
+                  <span>Identité &amp; positionnement</span>
+                  <span class="pill">En cours</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="tag">Moodboard</span>
+                  <span class="tag">Univers visuel</span>
+                  <span class="tag">Copy</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <header class="card-head">
+              <h3>Audiovisuel</h3>
+              <p class="muted">Image, rythme, impact.</p>
+            </header>
+
+            <ul class="skill-list">
+              <li class="skill">
+                <div class="skill-top">
+                  <span>Montage vidéo</span>
+                  <span class="pill">Avancé</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="tag">Premiere Pro</span>
+                  <span class="tag">Rythme</span>
+                  <span class="tag">Formats vertical</span>
+                </div>
+              </li>
+
+              <li class="skill">
+                <div class="skill-top">
+                  <span>Tournage &amp; cadrage</span>
+                  <span class="pill">Intermédiaire</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="tag">Plans</span>
+                  <span class="tag">Lumière</span>
+                  <span class="tag">Son</span>
+                </div>
+              </li>
+
+              <li class="skill">
+                <div class="skill-top">
+                  <span>Motion design</span>
+                  <span class="pill">En cours</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="tag">After Effects</span>
+                  <span class="tag">Typo animée</span>
+                  <span class="tag">Transitions</span>
+                </div>
+              </li>
+
+              <li class="skill">
+                <div class="skill-top">
+                  <span>Design &amp; prototypage</span>
+                  <span class="pill">Intermédiaire</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="tag">Figma</span>
+                  <span class="tag">Canva</span>
+                  <span class="tag">Grille</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Projets</h2>
+          <p class="section-lead">
+            Une sélection de formats orientés résultat : engagement, clarté du message, identité visuelle.
+          </p>
+        </div>
+
+        <div class="projects-toolbar reveal" role="region" aria-label="Filtrer les projets">
+          <div class="filter" role="tablist" aria-label="Catégories">
+            <button class="filter-btn is-active" type="button" data-filter="all" role="tab" aria-selected="true">
+              Tout
+            </button>
+            <button class="filter-btn" type="button" data-filter="communication" role="tab" aria-selected="false">
+              Communication
+            </button>
+            <button class="filter-btn" type="button" data-filter="audiovisuel" role="tab" aria-selected="false">
+              Audiovisuel
+            </button>
+            <button class="filter-btn" type="button" data-filter="design" role="tab" aria-selected="false">
+              Design
+            </button>
+          </div>
+
+          <div class="projects-count" aria-live="polite">
+            <span id="projectsCount">6</span> projets affichés
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid" aria-label="Grille de projets">
+          <!-- Les cards sont générées en HTML pour être copiable, et enrichies via JS (modal) -->
+          <article class="project-card reveal" data-category="communication" data-project-id="p1">
+            <div class="project-thumb" aria-hidden="true">
+              <div class="thumb-grad g1"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Campagne Instagram “Semaine Thématique”</h3>
+                <p class="project-type">Campagne Instagram</p>
+              </div>
+              <p class="project-desc">
+                Conception d’une série de posts &amp; stories pour renforcer la cohérence éditoriale et améliorer l’engagement.
+              </p>
+              <div class="project-tags" aria-label="Outils utilisés">
+                <span class="tag">Canva</span>
+                <span class="tag">Meta</span>
+                <span class="tag">Copywriting</span>
+              </div>
+              <button class="btn btn-small btn-ghost project-details" type="button">
+                Détails
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="audiovisuel" data-project-id="p2">
+            <div class="project-thumb" aria-hidden="true">
+              <div class="thumb-grad g2"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Teaser vidéo — format vertical</h3>
+                <p class="project-type">Teaser vidéo</p>
+              </div>
+              <p class="project-desc">
+                Montage dynamique pour capter l’attention dans les 3 premières secondes, avec titrage et rythme musical.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Premiere Pro</span>
+                <span class="tag">Sound</span>
+                <span class="tag">Sous-titres</span>
+              </div>
+              <button class="btn btn-small btn-ghost project-details" type="button">
+                Détails
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="design" data-project-id="p3">
+            <div class="project-thumb" aria-hidden="true">
+              <div class="thumb-grad g3"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Mini identité visuelle — marque fictive</h3>
+                <p class="project-type">Identité visuelle</p>
+              </div>
+              <p class="project-desc">
+                Direction artistique : palette, typographies, composants UI. Objectif : un univers premium et cohérent.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">Grille</span>
+                <span class="tag">Branding</span>
+              </div>
+              <button class="btn btn-small btn-ghost project-details" type="button">
+                Détails
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="audiovisuel" data-project-id="p4">
+            <div class="project-thumb" aria-hidden="true">
+              <div class="thumb-grad g4"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Interview — capsule courte</h3>
+                <p class="project-type">Interview</p>
+              </div>
+              <p class="project-desc">
+                Préparation des questions, prise de son, montage et habillage pour une capsule claire et humaine.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Tournage</span>
+                <span class="tag">Premiere Pro</span>
+                <span class="tag">Sound</span>
+              </div>
+              <button class="btn btn-small btn-ghost project-details" type="button">
+                Détails
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="audiovisuel" data-project-id="p5">
+            <div class="project-thumb" aria-hidden="true">
+              <div class="thumb-grad g5"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Motion design — typographie animée</h3>
+                <p class="project-type">Motion design</p>
+              </div>
+              <p class="project-desc">
+                Animation de typographies pour renforcer le message : transitions propres, timing, lisibilité mobile.
+              </p>
+              <div class="project-tags">
+                <span class="tag">After Effects</span>
+                <span class="tag">Typo</span>
+                <span class="tag">Timing</span>
+              </div>
+              <button class="btn btn-small btn-ghost project-details" type="button">
+                Détails
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="communication" data-project-id="p6">
+            <div class="project-thumb" aria-hidden="true">
+              <div class="thumb-grad g6"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Audit express — présence en ligne</h3>
+                <p class="project-type">Communication</p>
+              </div>
+              <p class="project-desc">
+                Diagnostic et recommandations : ton, cohérence visuelle, fréquence et idées de formats pour gagner en impact.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Benchmark</span>
+                <span class="tag">Stratégie</span>
+                <span class="tag">Réseaux</span>
+              </div>
+              <button class="btn btn-small btn-ghost project-details" type="button">
+                Détails
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section section-warm" aria-label="Services">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Services</h2>
+          <p class="section-lead">
+            Des prestations claires, calibrées pour des contenus efficaces — du brief à la livraison.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card reveal">
+            <h3>Stratégie social media</h3>
+            <p>
+              Ligne éditoriale, formats, calendrier et recommandations actionnables pour clarifier le positionnement.
+            </p>
+            <ul class="bullets">
+              <li>Angles &amp; storytelling</li>
+              <li>Plan de contenus</li>
+              <li>Optimisation engagement</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Montage vidéo</h3>
+            <p>
+              Montage rythmé, titrage, sous-titres, export multi-formats (vertical / horizontal) pour une diffusion fluide.
+            </p>
+            <ul class="bullets">
+              <li>Cut &amp; rythme</li>
+              <li>Habillage sobre</li>
+              <li>Livrables prêts réseau</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Création de contenu</h3>
+            <p>
+              Conception de séries de posts, assets et templates pour une identité cohérente et premium.
+            </p>
+            <ul class="bullets">
+              <li>Templates</li>
+              <li>Guides de style</li>
+              <li>Composants visuels</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Contact</h2>
+          <p class="section-lead">
+            Un projet, une idée, une opportunité ? Écrivez-moi — je réponds avec plaisir.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card reveal">
+            <h3>Me joindre</h3>
+            <p class="muted">
+              Vous pouvez aussi me contacter via les liens ci-dessous.
+            </p>
+
+            <div class="contact-links" aria-label="Liens de contact">
+              <a class="link" href="#" aria-label="LinkedIn (placeholder)">LinkedIn</a>
+              <a class="link" href="#" aria-label="Instagram (placeholder)">Instagram</a>
+              <a class="link" href="mailto:contact@exemple.fr" aria-label="Envoyer un email (placeholder)">
+                Email
+              </a>
+            </div>
+
+            <div class="note">
+              <p>
+                <strong>Tip :</strong> si vous avez un brief, mentionnez le format, la plateforme et l’échéance.
+              </p>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Formulaire</h3>
+
+            <form id="contactForm" novalidate>
+              <div class="field">
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+                <p class="field-hint" id="nameHint">Indiquez votre nom ou celui de votre structure.</p>
+                <p class="field-error" data-error-for="name" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required />
+                <p class="field-hint" id="emailHint">Ex : prenom.nom@domaine.fr</p>
+                <p class="field-error" data-error-for="email" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <p class="field-hint" id="messageHint">Contexte + objectif + format souhaité.</p>
+                <p class="field-error" data-error-for="message" aria-live="polite"></p>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">
+                  Envoyer
+                  <span aria-hidden="true">↗</span>
+                </button>
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Maëva Piot</p>
+      <a class="link subtle" href="#top">Haut de page</a>
+    </div>
+  </footer>
+
+  <!-- Back to top (bonus) -->
+  <button class="back-to-top" type="button" aria-label="Revenir en haut de page">
+    ↑
+  </button>
+
+  <!-- Modal Projet (accessibilité: role, aria, focus trap gérés en JS) -->
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <div class="modal-overlay" data-close-modal tabindex="-1"></div>
+
+    <div
+      class="modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalDesc"
+    >
+      <button class="modal-close" type="button" aria-label="Fermer la fenêtre" data-close-modal>
+        ✕
+      </button>
+
+      <div class="modal-header">
+        <p class="modal-eyebrow" id="modalType">Projet</p>
+        <h3 class="modal-title" id="modalTitle">Titre</h3>
+      </div>
+
+      <div class="modal-content">
+        <div class="modal-hero" aria-hidden="true">
+          <div class="thumb-grad g1" id="modalGradient"></div>
+        </div>
+
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <div class="modal-block">
+          <h4>Ce que j’ai fait</h4>
+          <ul class="bullets" id="modalBullets"></ul>
+        </div>
+
+        <div class="modal-block">
+          <h4>Outils &amp; compétences</h4>
+          <div class="project-tags" id="modalTags" aria-label="Tags projet"></div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a class="btn btn-primary" href="#contact" id="modalCta">Discuter du projet</a>
+        <button class="btn btn-ghost" type="button" data-close-modal>Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
