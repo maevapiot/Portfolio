@@ -288,17 +288,18 @@
         <div class="projects-grid" id="projectsGrid" aria-label="Grille de projets">
           <!-- Les cards sont générées en HTML pour être copiable, et enrichies via JS (modal) -->
           <article class="project-card reveal" data-category="communication" data-project-id="p1">
-            <div class="project-thumb" aria-hidden="true">
-              <div class="thumb-grad g1"></div>
+            <div class="project-thumb project-thumb-gallery" aria-hidden="true">
+              <img src="assets/images/cartes-postales1.JPG" alt="" class="thumb-img" />
+              <img src="assets/images/cartes-postales2.JPG" alt="" class="thumb-img" />
+              <img src="assets/images/cartes-postales3.JPG" alt="" class="thumb-img" />
             </div>
             <div class="project-body">
               <div class="project-top">
-                <h3 class="project-title">Campagne Instagram “Semaine Thématique”</h3>
-                <p class="project-type">Campagne Instagram</p>
+                <h3 class="project-title">Photographies Cartes Postales</h3>
+                <p class="project-type">Photographies</p>
               </div>
               <p class="project-desc">
-                Conception d’une série de posts &amp; stories pour renforcer la cohérence éditoriale et améliorer
-                l’engagement.
+                Conception d’une série de photos pour des cartes postales.
               </p>
               <div class="project-tags" aria-label="Outils utilisés">
                 <span class="tag">Canva</span>
@@ -312,16 +313,17 @@
           </article>
 
           <article class="project-card reveal" data-category="audiovisuel" data-project-id="p2">
-            <div class="project-thumb" aria-hidden="true">
-              <div class="thumb-grad g2"></div>
+            <div class="project-thumb project-thumb-single" aria-hidden="true">
+              <img src="assets/images/bordeaux.png" alt="" class="thumb-img" />
             </div>
             <div class="project-body">
               <div class="project-top">
-                <h3 class="project-title">Teaser vidéo — format vertical</h3>
+                <h3 class="project-title">Production audiovisuelle</h3>
                 <p class="project-type">Teaser vidéo</p>
               </div>
               <p class="project-desc">
-                Montage dynamique pour capter l’attention dans les 3 premières secondes, avec titrage et rythme musical.
+                Participation à la réalisation d’un film qui porte sur la richesse historique et culturelle de Bordeaux,
+                dans le cadre du projet d’intégration organisé par mon IUT
               </p>
               <div class="project-tags">
                 <span class="tag">Premiere Pro</span>
@@ -340,16 +342,16 @@
             </div>
             <div class="project-body">
               <div class="project-top">
-                <h3 class="project-title">Mini identité visuelle — marque fictive</h3>
+                <h3 class="project-title">Atelier Coach Me</h3>
                 <p class="project-type">Identité visuelle</p>
               </div>
               <p class="project-desc">
-                Direction artistique : palette, typographies, composants UI. Objectif : un univers premium et cohérent.
+                Création de posts photos et vidéos pour les réseaux sociaux d'une coach nutritioniste.
               </p>
               <div class="project-tags">
-                <span class="tag">Figma</span>
-                <span class="tag">Grille</span>
-                <span class="tag">Branding</span>
+                <span class="tag">Production de contenu</span>
+                <span class="tag">Storytelling</span>
+                <span class="tag">Gestion de projet</span>
               </div>
               <button class="btn btn-small btn-ghost project-details" type="button">
                 Détails
@@ -467,7 +469,9 @@
           </article>
 
           <article class="card reveal">
-            <h3>Création de contenu</h3>
+            <h3>Création de contenu
+
+            </h3>
             <p>
               Conception de séries de posts, assets et templates pour une identité cohérente et premium.
             </p>
@@ -579,8 +583,19 @@
       </div>
 
       <div class="modal-content">
-        <div class="modal-hero" aria-hidden="true">
+        <div class="modal-hero" aria-hidden="true" id="modalHero">
           <div class="thumb-grad g1" id="modalGradient"></div>
+          <!-- Carousel container (hidden by default, shown when project has images) -->
+          <div class="carousel" id="modalCarousel" hidden>
+            <div class="carousel-track" id="carouselTrack"></div>
+            <button class="carousel-btn carousel-prev" type="button" aria-label="Image précédente" id="carouselPrev">
+              <span aria-hidden="true">‹</span>
+            </button>
+            <button class="carousel-btn carousel-next" type="button" aria-label="Image suivante" id="carouselNext">
+              <span aria-hidden="true">›</span>
+            </button>
+            <div class="carousel-dots" id="carouselDots"></div>
+          </div>
         </div>
 
         <p class="modal-desc" id="modalDesc"></p>
@@ -601,6 +616,18 @@
         <button class="btn btn-ghost" type="button" data-close-modal>Fermer</button>
       </div>
     </div>
+  </div>
+
+  <!-- Lightbox plein écran pour les images -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-overlay" data-close-lightbox></div>
+    <button class="lightbox-close" type="button" aria-label="Fermer" data-close-lightbox>✕</button>
+    <button class="lightbox-btn lightbox-prev" type="button" aria-label="Image précédente" id="lightboxPrev">‹</button>
+    <button class="lightbox-btn lightbox-next" type="button" aria-label="Image suivante" id="lightboxNext">›</button>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
   </div>
 
   <script src="assets/js/script.js"></script>

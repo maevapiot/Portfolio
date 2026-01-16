@@ -131,48 +131,56 @@
   // -----------------------------
   const PROJECTS = {
     p1: {
-      title: "Campagne Instagram “Semaine Thématique”",
-      type: "Campagne Instagram",
+      title: "Photographies Cartes Postales",
+      type: "Photographies",
       category: "communication",
       desc:
-        "Série de contenus pensée pour clarifier l’univers de marque et favoriser l’engagement : storytelling, cohérence visuelle et CTA.",
+        "Conception d'une série de photos pour des cartes postales. Travail sur la composition, les couleurs et l'atmosphère pour créer des visuels authentiques et mémorables.",
       bullets: [
-        "Définition du concept et des objectifs (engagement / visibilité).",
-        "Création d’un kit de templates (posts, stories, highlights).",
-        "Rédaction des accroches + variations de CTA.",
-        "Organisation du calendrier de publication."
+        "Sélection des lieux et repérage des meilleures prises de vue.",
+        "Prise de photos avec attention particulière à la lumière naturelle.",
+        "Retouche légère pour un rendu fidèle et harmonieux.",
+        "Adaptation au format carte postale."
       ],
-      tags: ["Canva", "Meta", "Copywriting", "Calendrier éditorial"],
-      gradientClass: "g1"
+      tags: ["Photographie", "Canva", "Retouche", "Composition"],
+      gradientClass: "g1",
+      images: [
+        "assets/images/cartes-postales1.JPG",
+        "assets/images/cartes-postales2.JPG",
+        "assets/images/cartes-postales3.JPG",
+        "assets/images/cartes-postales4.JPG"
+      ]
     },
     p2: {
-      title: "Teaser vidéo — format vertical",
+      title: "Production audiovisuelle",
       type: "Teaser vidéo",
       category: "audiovisuel",
       desc:
-        "Montage conçu pour une lecture mobile : hook immédiat, titrage lisible et rythme aligné sur la musique.",
+        "Participation à la réalisation d'un film qui porte sur la richesse historique et culturelle de Bordeaux, dans le cadre du projet d'intégration organisé par mon IUT.",
       bullets: [
-        "Sélection des meilleurs plans + structuration en 3 temps.",
-        "Montage rythmé (cuts, dynamiques, respirations).",
-        "Titrage + sous-titres pour accessibilité mobile.",
-        "Exports optimisés pour plateformes (ratio, poids, audio)."
+        "Participation aux repérages et à la définition du storyboard.",
+        "Tournage sur plusieurs lieux emblématiques de Bordeaux.",
+        "Montage et synchronisation audio.",
+        "Travail en équipe sur un projet collectif.",
       ],
-      tags: ["Premiere Pro", "Sous-titres", "Sound design", "Vertical"],
-      gradientClass: "g2"
+      tags: ["Premiere Pro", "Tournage", "Montage", "Travail d'équipe"],
+      gradientClass: "g2",
     },
     p3: {
-      title: "Mini identité visuelle — marque fictive",
+      title: "Atelier Coach Me",
       type: "Identité visuelle",
       category: "design",
       desc:
-        "Construction d’un univers premium : choix typographiques, grille, composants et règles d’usage pour une cohérence globale.",
+        "Création de posts photos et vidéos pour les réseaux sociaux d'une coach nutritioniste.",
       bullets: [
-        "Moodboard + direction artistique (références, intentions).",
-        "Palette, typographies et composants UI réutilisables.",
-        "Déclinaisons : posts, stories et landing.",
-        "Mini guide : règles d’espacement, hiérarchie, usages."
+        "Analyse de communication digitale",
+        "Elaboration d'une nouvelle stratégie social média (SOME)",
+        "Prises Vidéo",
+        "Gestion de projet",
+        "Analyse de charte graphique",
+        "Analyses de marché et des tendances de consommation"
       ],
-      tags: ["Figma", "Branding", "Grille", "UI"],
+      tags: ["Production de contenu", "Storytelling", "Gestion de projet", "Analyse de marché"],
       gradientClass: "g3"
     },
     p4: {
@@ -197,7 +205,7 @@
       desc:
         "Animation typographique orientée message : timing, transitions propres et lisibilité prioritaire sur mobile.",
       bullets: [
-        "Choix typo + hiérarchie de l’information.",
+        "Choix typo + hiérarchie de l'information.",
         "Animation (easing, timing, transitions) sobre et premium.",
         "Gestion des contrastes et des zones de sécurité.",
         "Exports adaptés (mp4 / gifs légers)."
@@ -305,22 +313,187 @@
     }
   };
 
-  const fillModal = (data) => {
+  // Carousel state
+  let currentSlide = 0;
+  let carouselImages = [];
+
+  const carouselTrack = $("#carouselTrack");
+  const carouselDots = $("#carouselDots");
+  const carouselPrev = $("#carouselPrev");
+  const carouselNext = $("#carouselNext");
+  const modalCarousel = $("#modalCarousel");
+
+  const updateCarousel = () => {
+    if (carouselTrack) {
+      carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    // Update dots
+    $$(".carousel-dot", carouselDots).forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === currentSlide);
+    });
+  };
+
+  const nextSlide = () => {
+    currentSlide = (currentSlide + 1) % carouselImages.length;
+    updateCarousel();
+  };
+
+  const prevSlide = () => {
+    currentSlide = (currentSlide - 1 + carouselImages.length) % carouselImages.length;
+    updateCarousel();
+  };
+
+  const goToSlide = (index) => {
+    currentSlide = index;
+    updateCarousel();
+  };
+
+  // Carousel navigation events
+  if (carouselPrev) carouselPrev.addEventListener("click", prevSlide);
+  if (carouselNext) carouselNext.addEventListener("click", nextSlide);
+
+  // -----------------------------
+  // Lightbox logic
+  // -----------------------------
+  const lightbox = $("#lightbox");
+  const lightboxImg = $("#lightboxImg");
+  const lightboxPrev = $("#lightboxPrev");
+  const lightboxNext = $("#lightboxNext");
+  const lightboxCounter = $("#lightboxCounter");
+
+  let lightboxIndex = 0;
+
+  const updateLightbox = () => {
+    if (!lightboxImg || !carouselImages.length) return;
+    // Fade out slightly? Or just swap
+    lightboxImg.style.opacity = "0.5";
+    setTimeout(() => {
+      lightboxImg.src = carouselImages[lightboxIndex];
+      lightboxImg.style.opacity = "1";
+    }, 150);
+
+    if (lightboxCounter) {
+      lightboxCounter.textContent = `${lightboxIndex + 1} / ${carouselImages.length}`;
+    }
+  };
+
+  const openLightbox = (index) => {
+    if (!lightbox || !carouselImages.length) return;
+    lightboxIndex = index;
+    lightboxImg.src = carouselImages[lightboxIndex]; // Instant first load
+    if (lightboxCounter) lightboxCounter.textContent = `${lightboxIndex + 1} / ${carouselImages.length}`;
+
+    lightbox.setAttribute("aria-hidden", "false");
+    // Body is already hidden by modal, but redundancy is fine
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.setAttribute("aria-hidden", "true");
+    // Do NOT reset body overflow if modal is open (which it is)
+    if (!isModalOpen()) {
+      document.body.style.overflow = "";
+    }
+  };
+
+  const nextLightbox = () => {
+    lightboxIndex = (lightboxIndex + 1) % carouselImages.length;
+    updateLightbox();
+  };
+
+  const prevLightbox = () => {
+    lightboxIndex = (lightboxIndex - 1 + carouselImages.length) % carouselImages.length;
+    updateLightbox();
+  };
+
+  if (lightbox) {
+    lightbox.addEventListener("click", (e) => {
+      const target = e.target;
+      if (target && (target.hasAttribute("data-close-lightbox") || target === lightbox || target.closest(".lightbox-overlay"))) {
+        closeLightbox();
+      }
+    });
+  }
+
+  if (lightboxPrev) lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); prevLightbox(); });
+  if (lightboxNext) lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); nextLightbox(); });
+
+  const fillModal = (data, projectId) => {
     if (!data) return;
 
     if (modalType) modalType.textContent = data.type;
     if (modalTitle) modalTitle.textContent = data.title;
     if (modalDesc) modalDesc.textContent = data.desc;
 
-    // Gradient
-    if (modalGradient) {
-      modalGradient.className = `thumb-grad ${data.gradientClass || "g1"}`;
+    // ✅ Carousel uniquement pour p1
+    const shouldUseCarousel =
+      projectId === "p1" &&
+      Array.isArray(data.images) &&
+      data.images.length > 0;
+
+    if (shouldUseCarousel) {
+      // Show carousel, hide gradient
+      if (modalGradient) modalGradient.style.display = "none";
+      if (modalCarousel) modalCarousel.removeAttribute("hidden");
+
+      // Reset carousel state
+      currentSlide = 0;
+      carouselImages = data.images.slice();
+
+      // Build slides
+      if (carouselTrack) {
+        carouselTrack.innerHTML = "";
+        carouselImages.forEach((src, i) => {
+          const slide = document.createElement("div");
+          slide.className = "carousel-slide";
+
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = `${data.title} - Image ${i + 1}`;
+          img.loading = "lazy";
+          img.addEventListener("click", () => openLightbox(i));
+
+          slide.appendChild(img);
+          carouselTrack.appendChild(slide);
+        });
+      }
+
+      // Build dots
+      if (carouselDots) {
+        carouselDots.innerHTML = "";
+        carouselImages.forEach((_, i) => {
+          const dot = document.createElement("button");
+          dot.className = `carousel-dot${i === 0 ? " is-active" : ""}`;
+          dot.type = "button";
+          dot.setAttribute("aria-label", `Aller à l'image ${i + 1}`);
+          dot.addEventListener("click", () => goToSlide(i));
+          carouselDots.appendChild(dot);
+        });
+      }
+
+      // Optionnel : cacher prev/next si 1 seule image
+      const navDisplay = carouselImages.length > 1 ? "" : "none";
+      if (carouselPrev) carouselPrev.style.display = navDisplay;
+      if (carouselNext) carouselNext.style.display = navDisplay;
+
+      updateCarousel();
+    } else {
+      // ✅ Tous les autres projets : pas de carousel
+      carouselImages = [];
+      currentSlide = 0;
+
+      if (modalCarousel) modalCarousel.setAttribute("hidden", "");
+      if (modalGradient) {
+        modalGradient.style.display = "";
+        modalGradient.className = `thumb-grad ${data.gradientClass || "g1"}`;
+      }
     }
 
     // Bullets
     if (modalBullets) {
       modalBullets.innerHTML = "";
-      data.bullets.forEach((item) => {
+      (data.bullets || []).forEach((item) => {
         const li = document.createElement("li");
         li.textContent = item;
         modalBullets.appendChild(li);
@@ -330,7 +503,7 @@
     // Tags
     if (modalTags) {
       modalTags.innerHTML = "";
-      data.tags.forEach((t) => {
+      (data.tags || []).forEach((t) => {
         const span = document.createElement("span");
         span.className = "tag";
         span.textContent = t;
@@ -338,7 +511,6 @@
       });
     }
 
-    // CTA link stays in-page (local)
     if (modalCta) modalCta.setAttribute("href", "#contact");
   };
 
@@ -349,17 +521,17 @@
 
     lastFocusedEl = document.activeElement;
 
-    fillModal(data);
+    // ✅ on passe projectId à fillModal
+    fillModal(data, projectId);
+
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
-
-    // Prevent background scroll
     document.body.style.overflow = "hidden";
 
-    // Focus first meaningful element (close button)
     const closeBtn = $("[data-close-modal]", modal);
     (closeBtn || modalDialog)?.focus?.();
   };
+
 
   const closeModal = () => {
     if (!modal) return;
@@ -389,12 +561,18 @@
     });
 
     document.addEventListener("keydown", (e) => {
+      // Lightbox features
+      if (lightbox && lightbox.getAttribute("aria-hidden") === "false") {
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") prevLightbox();
+        if (e.key === "ArrowRight") nextLightbox();
+        return;
+      }
+
       if (!isModalOpen()) return;
       if (e.key === "Escape") closeModal();
       trapFocus(e);
     });
-
-    // Close if focus leaves dialog via click to overlay already handled
   }
 
   // -----------------------------
@@ -456,11 +634,11 @@
     setFieldError("message", "");
 
     if (name.length < 2) {
-      setFieldError("name", "Merci d’indiquer un nom (au moins 2 caractères).");
+      setFieldError("name", "Merci d'indiquer un nom (au moins 2 caractères).");
       ok = false;
     }
     if (!isValidEmail(email)) {
-      setFieldError("email", "Merci d’indiquer un email valide.");
+      setFieldError("email", "Merci d'indiquer un email valide.");
       ok = false;
     }
     if (message.length < 10) {
